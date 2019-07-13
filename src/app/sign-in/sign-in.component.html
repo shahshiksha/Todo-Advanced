@@ -1,0 +1,18 @@
+<div class="sign-in-wrapper">
+    <form [formGroup]="frm">
+        <h1>Todos</h1>
+        <input type="text" placeholder="Your username" formControlName="username">
+        <div class="input-errors" *ngIf="frm.get('username').hasError('required') && frm.get('username').touched">
+            Please enter your username
+        </div>
+        <input type="password" placeholder="Your password" formControlName="password">
+        <div class="input-errors" *ngIf="frm.get('password').hasError('required') && frm.get('password').touched">
+            Please enter your password
+        </div>
+        <div class="sign-in-error" *ngIf="hasFailed">
+            Invalid Username and Password.
+        </div>
+        <button (click)="doSignIn()" [disabled]="!frm.valid">Sign In</button>
+    </form>
+
+</div>
